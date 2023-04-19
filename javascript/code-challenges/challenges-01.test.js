@@ -64,7 +64,7 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 const greeting = (word) => {
   // Solution code here...
   return word.toUpperCase() + '!';
-  };
+};
 
 const speaker = (words, callback) => {
   // Solution code here...
@@ -98,7 +98,7 @@ const addValues = (arr, value) => {
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
   const emptyArray = [];
-  for(let i = 0; i < times; i++){
+  for (let i = 0; i < times; i++) {
     callback(emptyArray, num);
   }
   return emptyArray;
@@ -126,7 +126,7 @@ const createList = (availableItems) => {
   // Solution code here...
   const groceryList = [];
   availableItems.forEach(item => {
-    if(item.available){
+    if (item.available) {
       groceryList.push(item.name)
     }
   });
@@ -150,7 +150,20 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-};
+  const outputArray = [];
+  arr.forEach(element => {
+    if (element % 5 === 0 && element % 3 === 0) {
+      outputArray.push('Fizz Buzz');
+    } else if (element % 5 === 0) {
+      outputArray.push('Buzz');
+    } else if (element % 3 === 0) {
+      outputArray.push('Fizz');
+    } else {
+      outputArray.push(element);
+    }
+  })
+  return outputArray;
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -203,7 +216,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
