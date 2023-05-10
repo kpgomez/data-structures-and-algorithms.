@@ -160,6 +160,12 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  const splitStr = recipe.ingredients.map(ingredient => ingredient.split(' '));
+  // console.log(separateSTR);
+  const removeQty = splitStr.map(listItem => listItem.slice(2));
+  // console.log(removeQty);
+  const joinStr = removeQty.map(word => word.join(' '));
+  joinStr.forEach(item => result.push(item))
   return result;
 };
 
@@ -176,6 +182,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+
   return result;
 };
 
@@ -310,7 +317,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
