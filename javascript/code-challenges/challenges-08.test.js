@@ -52,26 +52,22 @@ let characters = [
   }
 ];
 
-//https://dev.to/maciekgrzybek/ultimate-guide-to-sorting-in-javascript-and-typescript-4al9
+//tested in about:blank console
 const sortByChildren = (charArray) => {
   // Solution code here...
   // sort few to most
-  charArray.sort((a, b) => {
+  return charArray.sort((a, b) => {
+    if (a.children.length < b.children.length) {
+      return -1;
+    }
     if (a.children.length === b.children.length) {
-      charArray.sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-      })
-    } else {
-      charArray.sort((a, b) => {
-        if (a.children.length < b.children.length) {
-          return -1;
-        }
-      })
+      if (a.name < b.name) {
+        return -1;
+      }
     }
   })
 }
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -139,8 +135,11 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
+//lacey w. helped with the filter suggestion
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  const regex = /^[A-J]/g;
+  return arr.filter(city => city.match(regex));
 
 };
 
@@ -275,7 +274,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
