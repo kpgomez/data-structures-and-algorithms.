@@ -52,13 +52,13 @@ return: 35
 //https://www.freecodecamp.org/news/javascript-2d-arrays/#:~:text=let%20arr%20%3D%20%5B%5D%3B%20let,first%20loop%20through%20the%20rows.
 const totalSum = (matrix) => {
   // Solution code here...
- let sum = 0;
- matrix.forEach((row) => {
-  row.forEach((element) => {
-    sum += element;
+  let sum = 0;
+  matrix.forEach((row) => {
+    row.forEach((element) => {
+      sum += element;
+    })
   })
- })
- return sum;
+  return sum;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,14 +84,17 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  // Solution code here... this took too long to figure out , also can't figure out why I can't use cookieStores.length ln 91 instead of 5
   let hourlySales = [];
-  let sum = 0;
-  for(let i = 0; i < cookieStores.length; i++){
-    sum += cookieStores[i][0];
+  for (let i = 0; i < 12; i++) {
+    let sum = 0;
+    for (let j = 0; j < 5; j++) {
+      sum += cookieStores[j][i];
+    }
+    hourlySales.push(sum);
   }
-  return sum;
-};
+  return hourlySales;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -102,9 +105,17 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
-
+//https://www.educative.io/answers/how-to-create-an-object-from-two-arrays-in-for-loop-in-javascript
 const salesData = (hours, data) => {
   // Solution code here...
+  let obj = {};
+  cookieStores.forEach(store => {
+    hours.forEach(hour => {
+      obj.sales = `${data} cookies`;
+      obj.time = hours;
+    })
+  })
+  return obj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,6 +141,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  return arr[2].items[1].quantity
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -260,7 +272,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should create an object of data for each store', () => {
     expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
       { sales: '88 cookies', time: '9 a.m.' },
@@ -281,7 +293,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the number 24', () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
