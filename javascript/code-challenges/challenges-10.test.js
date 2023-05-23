@@ -105,18 +105,26 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
-//https://www.educative.io/answers/how-to-create-an-object-from-two-arrays-in-for-loop-in-javascript
 const salesData = (hours, data) => {
   // Solution code here...
-  let obj = {};
-  cookieStores.forEach(store => {
-    hours.forEach(hour => {
-      obj.sales = `${data} cookies`;
-      obj.time = hours;
-    })
-  })
-  return obj;
-};
+  //   cookieStores.forEach(store => {
+  //     obj.sales = `${data} cookies`;
+  //     obj.time = hours;
+  //   })
+  //   return obj;
+  // }
+
+  //solution from 5/19 class demo <unsure if I'm going to remember how to do this one later....>
+  const salesOverview = [];
+  data.forEach((cookies, idx) => {
+    salesOverview.push({
+      sales: `${cookies} cookies`,
+      time: hours[idx]
+    });
+  });
+  return salesOverview;
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
