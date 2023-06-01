@@ -102,7 +102,9 @@ Return either true or false.
 //https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here... add |\s
-  const regex = /^\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})\)?$/;
+  // const regex = /^\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})\)?$/;
+  // below from class demo as well as help from Rhett/Jacob
+  const regex = /^(\(\d{3}\)|\d{3})([- ]?)\d{3}([- ]?)\d{4}$/;
   return regex.test(phoneNumber);
 };
 
