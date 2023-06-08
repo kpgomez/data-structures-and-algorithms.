@@ -102,6 +102,14 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  // return arr.filter(obj => obj.mass > 77).map(obj => obj.name).reduce((acc, currentValue) => `${acc} - ${currentValue}`);
+  // let passedTest = starWarsData.filter(obj => obj.mass > 77).map(obj => obj.name);
+  // return passedTest.reduce((acc, currentValue) => `${acc} - ${currentValue}`);
+  if(arr.length){
+    return arr.filter(obj => obj.mass > 77).map(obj => obj.name).reduce((acc, currentValue) => `${acc} - ${currentValue}`);
+  } else {
+    return '';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,6 +128,11 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  if(property === 'name'){
+    return arr.sort((a,b) => a.name > b.name ? 1 : -1);
+  } else if(property === 'price'){
+    return arr.sort((a,b) => a.price > b.price ? 1 : -1);
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,6 +174,9 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  const waysToWinRows = [];
+  const waysToWinCols = [];
+  const waysToWinDiag = [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -190,14 +206,14 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return only characters that are bigger than Luke', () => {
     expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
     expect(biggerThanLuke([])).toStrictEqual('');
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should sort items by a price', () => {
 
     expect(sortBy('price', [
