@@ -22,13 +22,7 @@ class LinkedList:
             self.head.next = old_head
 
     def includes(self, value):
-        # method body here
-        # if self.head.value:
-        #     print(self.head)
-        #     print(self.head.value)
-        #     return True
-        # else:
-        #     return False
+
         current = self.head
 
         linked_list_values = []
