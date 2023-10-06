@@ -13,7 +13,9 @@ class LinkedList:
         self.head = head
 
     def insert(self, value):
-        # method body here
+        """
+
+        """
         if self.head is None:
             self.head = Node(value)
         else:
@@ -22,13 +24,9 @@ class LinkedList:
             self.head.next = old_head
 
     def includes(self, value):
-        # method body here
-        # if self.head.value:
-        #     print(self.head)
-        #     print(self.head.value)
-        #     return True
-        # else:
-        #     return False
+        """
+
+        """
         current = self.head
 
         linked_list_values = []
@@ -58,6 +56,35 @@ class LinkedList:
 
         return linked_list_values + 'NULL'
 
+    def append(self, value):
+        """
+
+        """
+        ## my attempt
+        # current = self.head
+        # while current:
+        #     current = current.next
+        # # new_node = Node(value)
+        # current.next = Node(value)
+
+        #with help from ChatGPT
+        ## step one - instantiate new node
+        new_node = Node(value)
+
+        ## step two - make new node the head if this is a new linked list
+        if self.head is None:
+            self.head = new_node
+            return
+
+        ## you have to traverse linked list starting at the head
+        current = self.head
+
+        ## looks like my attempt was missing .next
+        while current.next:
+            current = current.next
+
+        ## change the pointer to now point to new_node
+        current.next = new_node
 
 class TargetError:
     pass
