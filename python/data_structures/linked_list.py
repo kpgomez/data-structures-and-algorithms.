@@ -71,12 +71,22 @@ class LinkedList:
 
         new_node = Node(new_value)
 
-        while current.next:
-            if current.next.value == value:
+        # my non-working code
+        # while current.next:
+        #     if current.next.value == value:
+        #         old_next = current.next
+        #         current.next = new_node
+        #         new_node.next = old_next
+        #         break
+
+        # per ChatGPT recommendations
+        while current:
+            if current.value == value:
                 old_next = current.next
                 current.next = new_node
                 new_node.next = old_next
                 break
+            current = current.next  # Move to the next node
 
     def append(self, value):
         """
@@ -144,5 +154,5 @@ class LinkedList:
 
 
 
-class TargetError:
+class TargetError():
     pass
