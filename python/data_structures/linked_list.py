@@ -154,5 +154,5 @@ class LinkedList:
 
 
 
-class TargetError():
-    pass
+class TargetError(Exception):
+    raise Exception('TargetError')
