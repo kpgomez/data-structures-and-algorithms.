@@ -42,17 +42,41 @@ class LinkedList:
         #         current = current.next
         # self.head.next = new_node
 
-        # with ChatGPT's help AGAIN
-        current = self.head
-
         new_node = Node(new_value)  # Create a new node with the new_value
 
+        # Figured out lines 48 - 55 all by myself. YAY!
+        if self.head is None:
+            self.head = new_node
+            return
+
+        current = self.head
+        if current.value == value:
+            new_node.next = current
+            self.head = new_node
+
+        #with ChatGPT's help
         while current.next:
             if current.next.value == value:  # Check the next node's value
                 new_node.next = current.next  # Set the next of the new node to the next of the current node
                 current.next = new_node  # Update the current node's next to the new node
                 break  # Exit the loop after insertion
             current = current.next  # Move to the next node in the list
+
+    def insert_after(self, value, new_value):
+        """
+        Adds a new node with the given new value immediately after the first node that has the value specified
+        """
+
+        current = self.head
+
+        new_node = Node(new_value)
+
+        while current.next:
+            if current.next.value == value:
+                old_next = current.next
+                current.next = new_node
+                new_node.next = old_next
+                break
 
     def append(self, value):
         """
