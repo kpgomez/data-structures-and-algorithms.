@@ -100,6 +100,33 @@ class LinkedList:
         else:
             return False
 
+    def kth_from_end(self, k: int) -> int:
+        print('k is', k)
+        length = 1
+        current = self.head
+        print('current is', current)
+        print('current.value is ', current.value)
+        print('current.next is ', current.next)
+
+        while current.next:
+            current = current.next
+            length += 1
+        # return length
+
+        # print('current.next is ', current.next)
+        print('length of linked list is ', length)
+        difference = length - k
+        print(f'difference is ', difference)
+
+        if difference == 0:
+            return self.head.value
+        while difference >= 1:
+            current = current.next
+            difference -= 1
+        print('after second traversal, current.value is ', current.value)
+        # return current.value
+
+
     def __str__(self):
         # method body here
         current = self.head
