@@ -12,6 +12,7 @@ I traversed the linked list twice. First is to find the length, second is to sta
 <!-- Show how to run your code, and examples of it in action -->
 
 ## Attribution
+Jacob Bassett helped a bunch with finding the logic errors
 
 
 
