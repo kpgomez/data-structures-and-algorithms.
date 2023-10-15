@@ -16,6 +16,7 @@ class LinkedList:
             self.head = Node(value)
             self.head.next = old_head
 
+
     def insert_before(self, value, new_value):
         """
         Adds a new node with the given new value immediately before the first node that has the value specified
