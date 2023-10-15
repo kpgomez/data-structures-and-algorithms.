@@ -100,6 +100,36 @@ class LinkedList:
         else:
             return False
 
+    def kth_from_end(self, k: int) -> int:
+        print('k is', k)
+        length = 0
+        current = self.head
+
+        if k < 0:
+            raise TargetError('Input must be a positive integer')
+        while current:
+            current = current.next
+            length += 1
+
+        # TODO: handle if no head
+        if length == 0:
+            return 0
+
+        # TODO: handle if k is greater than length, return Exception
+        if k >= length:
+            raise TargetError('Input out of range')
+        index = length - k
+
+        current = self.head
+        length = 0
+
+        while current:
+            length += 1
+            if length == index:
+                return current.value
+            current = current.next
+
+
     def __str__(self):
         # method body here
         current = self.head
