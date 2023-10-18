@@ -1,5 +1,6 @@
 from data_structures.linked_list import LinkedList
 
+
 # https://chat.openai.com/c/66fef8fb-4ee0-4032-9296-a44106e5d6f0
 def zip_lists(list1, list2):
     list3 = LinkedList()

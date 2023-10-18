@@ -3,6 +3,7 @@ class Node:
         self.value = value
         self.next = next
 
+
 class LinkedList:
     def __init__(self, head=None):
         # initialization here
@@ -16,10 +17,12 @@ class LinkedList:
             self.head = Node(value)
             self.head.next = old_head
 
-
     def insert_before(self, value, new_value):
         """
-        Adds a new node with the given new value immediately before the first node that has the value specified
+        inserts a new node with value before
+        :param value:
+        :param new_value:
+        :return:
         """
         new_node = Node(new_value)  # Create a new node with the new_value
 
@@ -41,7 +44,6 @@ class LinkedList:
             self.head = new_node
         else:
             raise TargetError
-
 
     def insert_after(self, value, new_value):
         """
@@ -86,7 +88,6 @@ class LinkedList:
         ## change the pointer to now point to new_node
         current.next = new_node
 
-
     def includes(self, value):
         current = self.head
 
@@ -129,7 +130,6 @@ class LinkedList:
             if length == index:
                 return current.value
             current = current.next
-
 
     def __str__(self):
         # method body here
