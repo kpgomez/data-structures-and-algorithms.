@@ -1,3 +1,6 @@
+from data_structures.invalid_operation_error import InvalidOperationError
+
+
 class Node:
     """
     A Node class knows about its value and next
@@ -28,10 +31,26 @@ class Stack:
         self.top = new_node
 
     def pop(self):
-        pass
+        """
+        An instance method of class Stack that removes Node from the top of the current stack and reassigns top the previous node's next
+        :return: the string value of the Node that was removed
+        """
+        # raise exception when empty
+        if self.top is None:
+            raise InvalidOperationError("Method not allowed on empty collection")
+        # create a ref that points to the same node as top
+        old_node = self.top
+        # point top to current top.next
+        self.top = self.top.next
+        # remove next from the ref
+        old_node.next = None
+        return old_node.value
 
     def peek(self):
-        pass
+        if self.top is None:
+            raise InvalidOperationError("Method not allowed on empty collection")
+        return self.top.value
 
     def is_empty(self):
-        pass
+        if self.top is None:
+            return True
