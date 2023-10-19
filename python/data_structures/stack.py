@@ -1,28 +1,31 @@
 class Node:
     """
-    A Node class that knows about its value and next
+    A Node class knows about its value and next
     """
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
 
 
-class Stack():
+class Stack:
     """
-    A Stack class consists of Nodes that knows only about their top
+    A Stack class is made up of Nodes. It only knows about its top
     """
     def __init__(self):
-        # initialization here
-        pass
+        self.top = None
 
     def push(self, value: str):
         """
-        Instance method that adds input value to current stack
+        An instance method of class Stack that adds the input value to current stack
         :param value: takes a string as an input representing the value to be pushed onto the stack
-        :return: no return
+        :return: there is no return
         """
-        # method body here
-        pass
+        # step one: create a new node
+        new_node = Node(value)
+        # step two: assign new_node.next to the same pointer as top
+        new_node.next = self.top
+        # step three: point top to new_node ** pointing goes in this direction -> **
+        self.top = new_node
 
     def pop(self):
         pass

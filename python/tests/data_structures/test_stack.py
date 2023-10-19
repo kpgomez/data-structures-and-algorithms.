@@ -7,7 +7,7 @@ def test_exists():
     assert Stack
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_push_onto_empty():
     s = Stack()
     s.push("apple")
@@ -16,7 +16,7 @@ def test_push_onto_empty():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_push_onto_full():
     s = Stack()
     s.push("apple")
