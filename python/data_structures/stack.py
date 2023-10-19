@@ -37,6 +37,7 @@ class Stack:
         """
         # raise exception when empty
         if self.top is None:
+            # https://chat.openai.com/c/edad9274-75c4-4640-9a55-3a36178ac3f6
             raise InvalidOperationError("Method not allowed on empty collection")
         # create a ref that points to the same node as top
         old_node = self.top
