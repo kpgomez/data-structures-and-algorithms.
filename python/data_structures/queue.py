@@ -18,8 +18,8 @@ class Queue:
         self.front = front
         self.rear = rear
         # Jacob's suggestions with front=None removed from parameters
-        self.front = rear
-        self.rear = rear
+        # self.front = rear
+        # self.rear = rear
 
     def enqueue(self, value: str):
         """
