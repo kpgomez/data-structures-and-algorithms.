@@ -11,10 +11,12 @@ class Queue:
     """
     A Queue consists of Nodes. It knows about its front and rear.
     """
-
-    def __init__(self, back=None):
-        self.front = back
-        self.back = back
+    def __init__(self, front=None, rear=None):
+        self.front = front
+        self.rear = rear
+        # Jacob's suggestions with front=None removed from parameters
+        self.front = rear
+        self.rear = rear
 
     def enqueue(self, value: str):
         """
@@ -22,23 +24,30 @@ class Queue:
         :param value:
         :return: None
         """
-        # step one: create new node
-        # new_node = Node(value)
-        # # step two: point new_node to same as back
-        # new_node.next = self.back
-        # # step three: point back to new node
-        # self.back = new_node
-
-        # if queue is empty, lines
+        # check for empty queue
         if self.front is None:
             new_node = Node(value)
             self.front = new_node
-            self.back = new_node
-
+            self.rear = new_node
         else:
+            # step one: create new node
             new_node = Node(value)
-            new_node = self.back
-            self.back = new_node
+            # step two: point rear.next to new_node
+            self.rear.next = new_node
+            # step three: point rear to new_node
+            self.rear = new_node
+
+        # Jacob's suggestions
+        # if queue is empty
+        # if self.front is None:
+        #     new_node = Node(value)
+        #     self.front = new_node
+        #     self.back = new_node
+
+        # else:
+        #     new_node = Node(value)
+        #     new_node = self.back
+        #     self.back = new_node
 
 
     def dequeue(self) -> str:
@@ -53,14 +62,18 @@ class Queue:
         # step one: create a ref that points to front
         old_front = self.front
         # step two: point front to front.next
-        new_front = self.front.next
-        # step three: point new front to None
-        # new_front.next = None
-        # # return value of old_front
+        self.front = old_front.next
+        # step three: point old_front.next to None
+        old_front.next = None
+        # return value of old_front
         return old_front.value
 
     def peek(self):
-        pass
+        if self.front is None:
+            raise InvalidOperationError
+        else:
+            return self.front.value
 
     def is_empty(self):
-        pass
+        if self.front is None:
+            return True
