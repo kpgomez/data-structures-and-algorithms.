@@ -48,11 +48,19 @@ class Stack:
         return old_node.value
 
     def peek(self) -> str:
+        """
+        An instance method of class stack that shows the value at the top of the stack
+        :return: the string representing the value of the Node on top
+        """
         if self.top is None:
             raise InvalidOperationError("Method not allowed on empty collection")
         return self.top.value
 
     def is_empty(self) -> bool:
+        """
+        An instance method of class stack that determines if the stack is empty
+        :return: boolean True when empty or False when not empty
+        """
         if self.top is None:
             return True
         # A more pythonic syntax per Jacob's recommendation
