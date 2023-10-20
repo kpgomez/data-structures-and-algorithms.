@@ -2,6 +2,9 @@ from data_structures.invalid_operation_error import InvalidOperationError
 
 
 class Node:
+    """
+    A Node only knows about its value and next
+    """
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
@@ -49,7 +52,6 @@ class Queue:
         #     new_node = self.back
         #     self.back = new_node
 
-
     def dequeue(self) -> str:
         """
         Removes the node from the front of the queue
@@ -57,7 +59,7 @@ class Queue:
         """
         # raise Exception when empty
         if self.front is None:
-            raise InvalidOperationError
+            raise InvalidOperationError("Method not allowed on empty collection")
 
         # step one: create a ref that points to front
         old_front = self.front
@@ -68,12 +70,20 @@ class Queue:
         # return value of old_front
         return old_front.value
 
-    def peek(self):
+    def peek(self) -> str:
+        """
+        An instance method of class Queue that shows the value of the Node in front
+        :return: a string representing the value in front
+        """
         if self.front is None:
-            raise InvalidOperationError
+            raise InvalidOperationError("Method not allowed on empty collection")
         else:
             return self.front.value
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
+        """
+        An instance method of class Queue that checks if the queue is empty
+        :return: a boolean True when empty and False when not empty
+        """
         if self.front is None:
             return True

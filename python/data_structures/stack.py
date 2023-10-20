@@ -59,7 +59,7 @@ class Stack:
     def is_empty(self) -> bool:
         """
         An instance method of class stack that determines if the stack is empty
-        :return: boolean True when empty or False when not empty
+        :return: boolean True when empty and False when not empty
         """
         if self.top is None:
             return True
