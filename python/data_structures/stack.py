@@ -61,7 +61,6 @@ class Stack:
         An instance method of class stack that determines if the stack is empty
         :return: boolean True when empty and False when not empty
         """
-        if self.top is None:
-            return True
-        # A more pythonic syntax per Jacob's recommendation
-        # return self.top is None
+        # this is great for when the there is a single conditional and the alternative
+        # requires no additional processing or evaluation
+        return self.top is None

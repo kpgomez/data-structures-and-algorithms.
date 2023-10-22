@@ -85,5 +85,4 @@ class Queue:
         An instance method of class Queue that checks if the queue is empty
         :return: a boolean True when empty and False when not empty
         """
-        if self.front is None:
-            return True
+        return self.front is None
