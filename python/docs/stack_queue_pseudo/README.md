@@ -3,7 +3,7 @@ Implement a PseudoQueue Using Two Stack Instances
 
 ## Whiteboard Process
 
-![Screenshot 2023-10-24 at 12.50.34 AM.png](..%2F..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202023-10-24%20at%2012.50.34%20AM.png)
+![Whiteboard](/docs/stack_queue_pseudo/White%20Board.png)
 
 ## Approach & Efficiency
 I popped and pushed the top of the enqueue(in_stack) to the dequeue(out_stack) reversing the order of the stack in order to dequeue the oldest item in the enqueue stack.
