@@ -21,9 +21,10 @@ class PseudoQueue:
                 # essentially reversing the order
                 self.out_stack.push(self.in_stack.pop())
         # once the stack out_stack finishes reversing the order of what was once the in_stack,
-        # assign the top value of the out_stack to a ref
+        # assign the top value of the out_stack to a ref, so I can return it later
         oldest = self.out_stack.pop()
+        # while out_stack is not empty
         while self.out_stack.top:
-            # move nodes from dequeue back onto enqueue as per the lecture
+            # move nodes from out_stack back onto in_stack as per the lecture
             self.in_stack.push(self.out_stack.pop())
         return oldest
