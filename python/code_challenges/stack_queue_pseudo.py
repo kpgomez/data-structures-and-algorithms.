@@ -13,14 +13,17 @@ class PseudoQueue:
         self.in_stack.push(value)
 
     def dequeue(self):
-        # first check if it is the top
+        # first check if out_stack is empty
         if not self.out_stack.top:
-            # while truthy or top is not None so basically the entire length of the in_stack
+            # while in_stack is not empty
             while self.in_stack.top:
                 # first pops the top value of in_stack then push that value into the out_stack,
-                # this essentially reverses the order of the stack from newest value on top to
-                # now oldest value on top
+                # essentially reversing the order
                 self.out_stack.push(self.in_stack.pop())
-        # once the stack out_stack reverses the order of what was once the in_stack,
-        # return the top value of the out_stack
-        return self.out_stack.pop()
+        # once the stack out_stack finishes reversing the order of what was once the in_stack,
+        # assign the top value of the out_stack to a ref
+        oldest = self.out_stack.pop()
+        while self.out_stack.top:
+            # move nodes from dequeue back onto enqueue as per the lecture
+            self.in_stack.push(self.out_stack.pop())
+        return oldest
