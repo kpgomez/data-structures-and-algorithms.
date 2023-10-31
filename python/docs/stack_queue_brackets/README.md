@@ -2,13 +2,13 @@
 Multi-bracket Validation
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![img.png](img.png)
 
 ## Approach & Efficiency
-I created three different queues for each type of bracket. If the bracket is an opening type, it is enqueued to the queue that matches its type. If the bracket is a closing type, then its corresponding queue is dequeued. The Big O for both time and space complexity is O(n).
+I created three different queues for each type of bracket. If the bracket is an opening type, it is enqueued to the queue that matches its type. If the bracket is a closing type, then its corresponding queue is dequeued. Final step was to confirm each queue was empty. The Big O for both time and space complexity is O(n).
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
+pytest -k test_stack_queue_brackets.py
 
 ## Attribution
 
