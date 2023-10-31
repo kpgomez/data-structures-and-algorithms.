@@ -63,3 +63,9 @@ def test_mismatched():
     actual = multi_bracket_validation("[}")
     expected = False
     assert actual == expected
+
+#@pytest.mark.skip("NEW")
+def test_single():
+    actual = multi_bracket_validation("{")
+    expected = False
+    assert actual == expected
