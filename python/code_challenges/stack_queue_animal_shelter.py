@@ -6,12 +6,12 @@ class AnimalShelter:
     AnimalShelter class can only hold dog and cat instances
     """
     def __init__(self):
-        # this initializes AnimalShelter as a Queue instance, so it now has access to all of its methods/attributes
+        # this initializes AnimalShelter as a Queue instance
         self.animals = Queue()
 
     def enqueue(self, animal: object) -> None:
         """
-        An instance method that
+        An instance method that adds the animal to the back of the queue
         :param animal: an object that represent the species added to the shelter
         :return: None
         """
@@ -23,7 +23,7 @@ class AnimalShelter:
 
     def dequeue(self, pref=None) -> str:
         """
-        An instance method that removes the animal from the queue
+        An instance method that removes the animal from the front of the queue
         :param pref: a string that represents the species to be removed from the shelter
         :return: string specifying the specie removed
         """
@@ -41,34 +41,38 @@ class AnimalShelter:
             # if queue is empty
             if self.animals.is_empty():
                 raise IndexError("No animals available for adoption.")
+            # return animal at front of queue
             return self.animals.dequeue()
 
     def _dequeue_by_preference(self, pref: str):
         """
-        An instance method that iterates through the queue and finds the animal that matches the species/pref and also that
-        animal has been in the shelter the longest
+        An instance method that iterates through the queue starting at the front of the queue
+        and finds the first animal that matches the species/preference
         :param pref: string representing species to be removed from the shelter
-        :return:
+        :return: string representing animal removed from the queue
         """
         # set current to the front of the queue for iteration purposes
         current = self.animals.front
-        # unsure why previous is None
+        # set ref for previous node
         prev = None
         # while current is not None or truthy
         while current:
             # checks to see if current node value matches the pref
             if current.value.species == pref:
-                # still unsure what prev is used for
+                # point prev node to next node
                 if prev:
                     prev.next = current.next
+                # point front to next node
                 else:
                     self.animals.front = current.next
+                # point rear node to prev
                 if not current.next:
-                    self.animals.last = prev
+                    self.animals.rear = prev
                 return current.value
             prev = current
             current = current.next
         raise IndexError(f"No {pref}s available for adoption.")
+
 
 
 class Dog:
