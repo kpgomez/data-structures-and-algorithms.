@@ -58,17 +58,13 @@ class BinarySearchTree(BinaryTree):
                 return True
             if value < current.value:
                 if current.left is None:
-                    continue
-                if value == current.value:
-                    return True
+                    return False
                 else:
                     current = current.left
 
             if value > current.value:
                 if current.right is None:
-                    continue
-                if value == current.right:
-                    return True
+                    return False
                 else:
                     current = current.right
         return False
