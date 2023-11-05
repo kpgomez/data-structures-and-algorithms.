@@ -17,22 +17,59 @@ class BinarySearchTree(BinaryTree):
         if self.root is None:
             self.root = Node(value)
 
+        # for iteration
         current = self.root
 
         while current:
+            # ensures there are no nodes with duplicate values
             if value == current.value:
                 return
+
+            # moves left if value is less than current
             if value < current.value:
+                # if left is empty, add new node
                 if current.left is None:
                     current.left = Node(value)
+
+                # if left is not empty, keep moving down the tree
                 else:
                     current = current.left
+
+            # moves right if value is greater than current
             if value > current.value:
+                # if right is empty
                 if current.right is None:
                     current.right = Node(value)
+
+                # keep moving right if not empty
                 else:
                     current = current.right
 
     def contains(self, value) -> bool:
-        pass
+        """
+        Traverses the entire BST and checks if any of the nodes contains a specified value
+        :param value:
+        :return: True if BST contains specified value, False if BST does not contain specified value
+        """
+        current = self.root
+
+        while current:
+            if value == current.value:
+                return True
+            if value < current.value:
+                if current.left is None:
+                    continue
+                if value == current.value:
+                    return True
+                else:
+                    current = current.left
+
+            if value > current.value:
+                if current.right is None:
+                    continue
+                if value == current.right:
+                    return True
+                else:
+                    current = current.right
+        return False
 
