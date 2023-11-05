@@ -13,7 +13,12 @@ class BinarySearchTree(BinaryTree):
         self.root = None
 
     def add(self, value) -> None:
-        # method body here
+        """
+        Adds a new node to the BST but only if the value does not already exist in BST
+        :param value: any datatype as long as the BST contains the same datatype and datatype can be compared using
+        comparison operators <, >, <=, >=, or ==
+        :return: None
+        """
         if self.root is None:
             self.root = Node(value)
 
@@ -45,6 +50,7 @@ class BinarySearchTree(BinaryTree):
                 else:
                     current = current.right
 
+    # https://chat.openai.com/c/d424e9c6-65ec-47c3-b4fd-05532dfdc8a9
     def contains(self, value) -> bool:
         """
         Traverses the entire BST and checks if any of the nodes contains a specified value
