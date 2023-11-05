@@ -51,21 +51,27 @@ class BinarySearchTree(BinaryTree):
         :param value:
         :return: True if BST contains specified value, False if BST does not contain specified value
         """
+        # for traversing the nodes
         current = self.root
 
         while current:
+            # check if specified value is equal to current node's value
             if value == current.value:
                 return True
+            # move left if specified value is less than current node's value
             if value < current.value:
                 if current.left is None:
                     return False
+                # move pointer
                 else:
                     current = current.left
-
+            # move right is specified value is greater than current node's value
             if value > current.value:
                 if current.right is None:
                     return False
+                # move pointer
                 else:
                     current = current.right
+        # all nodes have been checked
         return False
 
