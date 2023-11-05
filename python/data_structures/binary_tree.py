@@ -50,11 +50,14 @@ class BinaryTree:
             if current is None:
                 return
 
+            # check left
             if current.left is not None:
                 traverse(current.left)
 
+            # check root
             results.append(current.value)
 
+            # check right
             if current.right is not None:
                 traverse(current.right)
 
