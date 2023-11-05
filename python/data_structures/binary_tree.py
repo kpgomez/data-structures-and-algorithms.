@@ -1,6 +1,6 @@
 class Node:
     """
-    A Node class knows its value, left, and right child node.
+    A Node knows its value, left, and right child node.
     """
     def __init__(self, value):
         self.value = value
@@ -9,7 +9,7 @@ class Node:
 
 class BinaryTree:
     """
-    Put docstring here
+    A BinaryTree is a non-linear data structure that contains a root/parent node that can point to one or more child nodes
     """
 
     def __init__(self):
@@ -18,7 +18,7 @@ class BinaryTree:
     # https://www.udemy.com/course/data-structures-algorithms-python/
     def pre_order(self) -> list:
         """
-        This is a depth first traversal and the order of traversal is root, left, right
+        This is a type of depth first traversal and the order of this traversal is root, left, right
         :return: list a values
         """
         results = []
@@ -41,7 +41,7 @@ class BinaryTree:
 
     def in_order(self) -> list:
         """
-        This is a depth first traversal and the order of traversal is left, root, right
+        This is a type of depth first traversal and the order of this traversal is left, root, right
         :return:
         """
         results = []
@@ -65,7 +65,7 @@ class BinaryTree:
     def post_order(self) -> list:
 
         """
-        This is a depth first traversal and the order of traversal is left, right, root
+        This is a type of depth first traversal and the order of this traversal is left, right, root
         :return:
         """
         results = []
