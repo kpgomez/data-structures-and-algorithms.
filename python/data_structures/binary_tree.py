@@ -7,6 +7,7 @@ class Node:
         self.left = None
         self.right = None
 
+
 class BinaryTree:
     """
     A BinaryTree is a non-linear data structure that contains a root/parent node that can point to one or more child nodes

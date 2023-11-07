@@ -10,7 +10,8 @@ class BinarySearchTree(BinaryTree):
 
     def __init__(self):
         # initialization here
-        self.root = None
+        super().__init__()
+        # self.root = None
 
     def add(self, value) -> None:
         """
