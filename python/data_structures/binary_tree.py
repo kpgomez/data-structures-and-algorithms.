@@ -89,3 +89,6 @@ class BinaryTree:
         traverse(self.root)
 
         return results
+
+    def find_maximum_value(self):
+        return max(self.in_order())
