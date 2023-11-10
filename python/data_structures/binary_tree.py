@@ -91,4 +91,4 @@ class BinaryTree:
         return results
 
     def find_maximum_value(self):
-        return max(self.in_order())
+        return max(self.pre_order())
