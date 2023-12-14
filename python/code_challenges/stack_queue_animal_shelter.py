@@ -3,7 +3,7 @@ from data_structures.invalid_operation_error import InvalidOperationError
 
 
 class Animal(Node):
-    def __init__(self, value: str, next = None):
+    def __init__(self, value: str, next=None):
         self.value = value
         self.next = next
 
@@ -22,7 +22,7 @@ class Dog(Animal):
     Node holds the name of the cat or dog object, along with its species, and also knows about the next Node.
     """
     def __init__(self, name: str = None):
-        self.value = name
+        self.name = name
         self.species = "dog"
 
 
@@ -48,12 +48,12 @@ class AnimalShelter(Queue):
             # step three: point rear to new_node
             self.rear = new_node
 
-    def dequeue(self, pref: str = None ) -> Animal:
+    def dequeue(self, pref: str = None) -> Animal:
         # raise Exception when empty
         if self.front is None:
             raise InvalidOperationError
 
-        if pref not in ('dog', 'cat'):
+        if pref not in ("dog", "cat"):
             return None
 
         while True:
@@ -70,7 +70,7 @@ class AnimalShelter(Queue):
                 return old_front.value
             # move to next node
             else:
-                current = self.front
+                # current = self.front
                 self.front = current.next
 
 
