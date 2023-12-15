@@ -5,10 +5,14 @@ as the original tree with the exception that its node values will be "FizzBuzz" 
 fizzbuzz criteria.
 
 ## Whiteboard Process
-![img.png](img.png)
+![img.png](whiteboard.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
+
+## Attribution
+- [Class Demo # 19](https://replit.com/@kiengchay/Warm-Up-Class-19-401n8#main.py)
+- [Trees documentation](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-15/resources/Trees.html)
