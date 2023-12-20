@@ -28,7 +28,6 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
     queue = Queue()
     queue.enqueue(before_fizz_root)
 
-    current = before_fizz_root
     fizz_current = fizzed_root
 
     collection = []
@@ -54,6 +53,4 @@ if __name__ == "__main__":
     fourth_child.children = [grandchild_one, grandchild_two]
     root.children = [first_child, second_child, third_child, fourth_child]
     tree = KaryTree(root)
-    # print('tree breadth first line 110', tree.breadth_first())
     fizzy_tree = fizz_buzz_tree(tree)
-    # print('fizz_tree.bfs line 112', fizzy_tree.breadth_first())
