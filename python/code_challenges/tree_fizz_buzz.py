@@ -14,7 +14,7 @@ def check_fizz_buzz(node):
         return str(node.value)
 
 
-def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
+def fizz_buzz_tree(k_ary_tree: KaryTree) -> KaryTree:
     # maintain ref to old root
     before_fizz_root = k_ary_tree.root
 
@@ -30,11 +30,8 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
 
     fizz_current = fizzed_root
 
-    collection = []
-
     while not queue.is_empty():
         node = queue.dequeue()
-        collection.append(node)
         for child in node.children:
             queue.enqueue(child)
             fizz_current.children.append(Node(check_fizz_buzz(child)))
