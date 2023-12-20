@@ -36,11 +36,11 @@ def check_fizz_buzz(node):
     # print('fizz buzz node line 40', node)
     # print('node.value line 41', node.value)
     if node.value % 15 == 0:
-        return "fizzbuzz"
+        return "FizzBuzz"
     elif node.value % 5 == 0:
-        return "fizz"
+        return "Buzz"
     elif node.value % 3 == 0:
-        return "buzz"
+        return "Fizz"
     else:
         return str(node.value)
 
@@ -71,10 +71,15 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
         collection.append(node)
         for child in node.children:
             queue.enqueue(child)
-            # print('line 73', queue)
-            # print('line 74', collection)
-            print(child)
-            fizz_current.children = [Node(check_fizz_buzz(child)) for item in collection]
+            # # print('line 73', queue)
+            # # print('line 74', collection)
+            print(child.value)
+            # print('grand children', child.children)
+            # print('fizz current.children', fizz_current.children)
+            # fizz_current.children.append(Node(check_fizz_buzz(child)) for item in collection)
+            fizz_current.children.append(Node(check_fizz_buzz(child)))
+                # for grandchild in child.children:
+                #     fizz_current.children.append(Node(check_fizz_buzz(grandchild)))
 
     return new_tree
 
