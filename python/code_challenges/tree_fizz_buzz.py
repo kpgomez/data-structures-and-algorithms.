@@ -61,15 +61,20 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
     queue = Queue()
     queue.enqueue(before_fizz_root)
 
-    current = fizzed_root
-    #
+    current = before_fizz_root
+    fizz_current = fizzed_root
+
+    collection = []
+
     while not queue.is_empty():
-        collection = []
         node = queue.dequeue()
         collection.append(node)
         for child in node.children:
             queue.enqueue(child)
-            current.children = [Node(check_fizz_buzz(child)) for item in collection]
+            # print('line 73', queue)
+            # print('line 74', collection)
+            print(child)
+            fizz_current.children = [Node(check_fizz_buzz(child)) for item in collection]
 
     return new_tree
 
