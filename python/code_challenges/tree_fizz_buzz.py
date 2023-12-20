@@ -15,26 +15,21 @@ class KaryTree:
 
     def breadth_first(self):
         queue = Queue()
-        # print('self.root line 18', self.root)
         queue.enqueue(self.root)
         collection = []
 
         # while queue is not empty
         while not queue.is_empty():
             node = queue.dequeue()
-            # print('line 25', node.value, node.children)
-            collection.append(str(node.value))
+            collection.append(node.value)
 
             for child in node.children:
-                # print('child line 29', child.value)
                 queue.enqueue(child)
-        # print('collection', collection)
+
         return collection
 
 
 def check_fizz_buzz(node):
-    # print('fizz buzz node line 40', node)
-    # print('node.value line 41', node.value)
     if node.value % 15 == 0:
         return "FizzBuzz"
     elif node.value % 5 == 0:
@@ -51,12 +46,10 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
 
     # check fizzbuzz on  root node
     fizzed_root = Node(check_fizz_buzz(before_fizz_root))
-    # print(fizzed_root)
-    # print(fizzed_root.value)
 
     # # create new fizzed tree
     new_tree = KaryTree(fizzed_root)
-    #
+
     # use queue to traverse old tree
     queue = Queue()
     queue.enqueue(before_fizz_root)
@@ -71,15 +64,7 @@ def fizz_buzz_tree(k_ary_tree: KaryTree) -> Node:
         collection.append(node)
         for child in node.children:
             queue.enqueue(child)
-            # # print('line 73', queue)
-            # # print('line 74', collection)
-            print(child.value)
-            # print('grand children', child.children)
-            # print('fizz current.children', fizz_current.children)
-            # fizz_current.children.append(Node(check_fizz_buzz(child)) for item in collection)
             fizz_current.children.append(Node(check_fizz_buzz(child)))
-                # for grandchild in child.children:
-                #     fizz_current.children.append(Node(check_fizz_buzz(grandchild)))
 
     return new_tree
 
@@ -95,23 +80,10 @@ if __name__ == "__main__":
     fourth_child.children = [grandchild_one, grandchild_two]
     root.children = [first_child, second_child, third_child, fourth_child]
     tree = KaryTree(root)
-    # print('tree line 109', tree)
     print('tree breadth first line 110', tree.breadth_first())
     fizzy_tree = fizz_buzz_tree(tree)
     print('fizz_tree.bfs line 112', fizzy_tree.breadth_first())
-    # print('tree line 66', tree)
-    # print('root', root)
-    # print('root.value', root.value)
-    # print('root.children', root.children)
-    # for child in root.children:
-    #     print('child.value', child.value)
-    # actual = tree.breadth_first()
-    # print('actual line 58', actual)
-    # new = tree.copy()
-    # print('new line 61', new)
-    # fizz_buzz_tree_input_node(tree)
-    # fizzy_tree = fizz_buzz_tree(tree)
-    # copied_tree = fizzy_tree.copy()
+
 
 
 
