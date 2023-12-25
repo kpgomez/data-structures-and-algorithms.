@@ -39,7 +39,3 @@ def insertion_sort(input: list[int]) -> list[int]:
     else:
         return "Cannot sort because input list contains non-integer values"
 
-
-if __name__ == "__main__":
-
-    print(insertion_sort(test_list))
