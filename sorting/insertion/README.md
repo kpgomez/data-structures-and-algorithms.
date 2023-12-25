@@ -7,11 +7,11 @@ According to Wikipedia,
 ## Provided Pseudocode
 
 
-![Alt text](image-1.png)
+![Alt text](src/image-1.png)
 
 ## Step One: Understand the Pseudocode
 
-![Alt text](image-5.png)
+![Alt text](src/image-5.png)
 
 ## Example Given
 
@@ -59,7 +59,7 @@ Output: `[4, 5, 8, 16, 23, 42]`
 
 **Scope**: InsertionSort
 
-![Alt text](image-7.png)
+![Alt text](src/image-7.png)
 
 **Scope**: Insert
 
@@ -98,3 +98,4 @@ Nearly-sorted: `[2, 3, 5, 7, 13, 11]`
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort)
 - [Selection Sort Example](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-26/solutions/BLOG)
+- [7.4 Insertion Sort Algorithm |Explanation with C Program| Data Structure Tutorials](https://www.youtube.com/watch?v=yCxV0kBpA6M&t=1370s)
