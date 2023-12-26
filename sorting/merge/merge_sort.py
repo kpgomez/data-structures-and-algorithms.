@@ -10,11 +10,11 @@ def merge_sort(arr: list[int]) -> list[int]:
 
     if n > 1:
         mid = n//2
-        # print(mid)
+        print(mid)
         left = arr[0:mid]
-        # print('left', left)
+        print('left', left)
         right = arr[mid:n]
-        # print('right', right)
+        print('right', right)
 
         merge_sort(left)
         merge_sort(right)
@@ -46,16 +46,24 @@ def merge(left: list[int], right: list[int], arr: list[int]) -> list[int]:
 
     if i == len(left):
         arr[k] = right[j]
+        # k += 1
+        # j += 1
     else:
         arr[k] = left[i]
+        # k += 1
+        # i += 1
 
     return arr
 
 
 if __name__ == "__main__":
-    print(merge_sort([8, 4, 23, 42, 16, 15]))
-    # reverse_sorted = [20, 18, 12, 8, 5, -2]
-    # print(merge_sort(reverse_sorted))  # should result [-2, 5, 8, 12, 18, 20] but tests show [-2, 5, 8, 12, 5, -2]
+    # print(merge_sort([8, 4, 23, 42, 16, 15]))
+    reverse_sorted = [20, 18, 12, 8, 5, -2]
+    reverse_sorted_remix = [18, 12, 8, 5, -2, 20]
+    print(merge_sort(reverse_sorted))  # should result [-2, 5, 8, 12, 18, 20] but tests show [-2, 5, 8, 12, 5, -2]
+    print(merge_sort(reverse_sorted_remix)) # resulted in [-2, 5, 8, 12, 18, 20] which is correct, only difference
+    # is this one does not start with the largest value
+
     # few_uniques = [5, 12, 7, 5, 5, 7]
     # print(merge_sort(few_uniques))  # should result [5, 5, 5, 7, 7, 12] but tests show [5, 5, 5, 7, 7, 7]
     # nearly_sorted = [2, 3, 5, 7, 13, 11]
