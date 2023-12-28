@@ -6,7 +6,7 @@ def test_exists():
     assert Hashtable
 
 
-@pytest.mark.skip("TODO")
+# @pytest.mark.skip("TODO")
 def test_get_apple():
     hashtable = Hashtable()
     hashtable.set("apple", "Used for apple sauce")
