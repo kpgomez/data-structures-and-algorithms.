@@ -23,7 +23,6 @@ def test_internals():
     hashtable.set("listen", "to me")
 
     actual = []
-    # print(hashtable.table)
 
     # NOTE: purposely breaking encapsulation to test the "internals" of Hashmap
     for item in hashtable._buckets:

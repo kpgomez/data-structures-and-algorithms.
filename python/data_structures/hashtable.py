@@ -37,7 +37,12 @@ class Hashtable:
         return key in self._buckets
 
     def keys(self) -> list[str]:
-        pass
+        all_keys = []
+        for item in self._buckets:
+            if item:
+                all_keys.append(item[0])
+        return all_keys
+
 
     def hash(self, key: str) -> int:
         """
@@ -56,14 +61,15 @@ class Hashtable:
         return hash_value % self.size
 
 
-if __name__ == "__main__":
-    # table = Hashtable()
-    # table.set("silent", True) # silent and listen have the same hash value
-    # table.set("ahmad", 30)
-    # table.set("listen", "to me")
+# if __name__ == "__main__":
+#     table = Hashtable()
+#     table.set("silent", True) # silent and listen have the same hash value
+#     table.set("ahmad", 30)
+#     table.set("listen", "to me")
     # print(("silent", True) in table._buckets    )
     # print(table._buckets)
     # for item in table._buckets:
     #     if item:
     #         print(item)
-    pass
+
+    # print(table.keys())
