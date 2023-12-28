@@ -30,17 +30,19 @@ class Hashtable:
         :return:
         :rtype:
         """
-
-        return self._buckets[self.hash(key)][1]
+        if self.has(key):
+            return self._buckets[self.hash(key)][1]
+        else:
+            return None
 
     def has(self, key: str) -> bool:
-        return key in self._buckets
+        return key in self.keys()
 
     def keys(self) -> list[str]:
         all_keys = []
-        for item in self._buckets:
-            if item:
-                all_keys.append(item[0])
+        for key in self._buckets:
+            if key:
+                all_keys.append(key[0])
         return all_keys
 
 
@@ -61,15 +63,23 @@ class Hashtable:
         return hash_value % self.size
 
 
-# if __name__ == "__main__":
-#     table = Hashtable()
-#     table.set("silent", True) # silent and listen have the same hash value
-#     table.set("ahmad", 30)
-#     table.set("listen", "to me")
-    # print(("silent", True) in table._buckets    )
-    # print(table._buckets)
-    # for item in table._buckets:
-    #     if item:
-    #         print(item)
+if __name__ == "__main__":
+    table = Hashtable()
+    table.set("silent", True) # silent and listen have the same hash value
+    table.set("ahmad", 30)
+    table.set("listen", "to me")
+    print(("silent", True) in table._buckets    )
+    print(table._buckets)
+    for item in table._buckets:
+        if item:
+            print(item)
 
-    # print(table.keys())
+    print(table.keys())
+    print(table.get("dne")) # TODO: add this to test
+
+    # questions
+    # Should the set method replace the value if there is a collision or allow for collisions by chaining
+    # are we expected to do a whiteboard?
+    # 5 Successfully handle a collision within the hashtable
+    # 6 Successfully retrieve a value from a bucket within the hashtable that has a collision
+    # 7 Successfully hash a key to an in-range value

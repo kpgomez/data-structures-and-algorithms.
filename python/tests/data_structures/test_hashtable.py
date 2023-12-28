@@ -1,4 +1,5 @@
 import pytest
+from collections import Counter
 from data_structures.hashtable import Hashtable
 
 
@@ -11,6 +12,7 @@ def test_get_apple():
     hashtable = Hashtable()
     hashtable.set("apple", "Used for apple sauce")
     actual = hashtable.get("apple")
+    print(hashtable.has("apple"))
     expected = "Used for apple sauce"
     assert actual == expected
 
@@ -53,3 +55,23 @@ def test_internals():
                 count += 1
 
     assert count == len(actual)
+
+
+# @pytest.mark.skip()
+def test_key_does_not_exist():
+    hashtable = Hashtable()
+    actual = hashtable.get("nonexistent")
+    expected = None
+    assert actual == expected
+
+
+# @pytest.mark.skip()
+def test_unique_keys():
+    hashtable = Hashtable(1024)
+    hashtable.set("art", 1_000_000)
+    hashtable.set("bakery", "cookie")
+    hashtable.set("castle", "prince")
+    hashtable.set("bakery", "cake")
+    counter = Counter(hashtable.keys())
+    assert(all(counter.values()) == 1)
+
