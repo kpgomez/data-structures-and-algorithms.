@@ -40,7 +40,6 @@ def test_internals():
     assert modified_actual == expected
 
 
-
 # @pytest.mark.skip()
 def test_key_does_not_exist():
     hashtable = Hashtable()
@@ -69,15 +68,17 @@ def test_unique_keys():
     assert all(key_counter.values()) == 1
 
 
-# test for collision
-@pytest.mark.skip()
-def test_collision():
-    pass
-
-
 @pytest.mark.skip()
 def test_collision_chaining():
-    pass
+    hashtable = Hashtable()
+    hashtable.set("silent", True)
+    hashtable.set("listen", "to me")
+    # hashtable.set("ahmad", 30)
+    # actual = hashtable.get("ahmad")
+    # print(hashtable.keys())
+    actual = hashtable.get("silent")
+    expected = True
+    assert actual == expected
 
 
 @pytest.mark.skip()
