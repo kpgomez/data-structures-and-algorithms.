@@ -1,16 +1,15 @@
 import string
-from data_structures.hashtable import Hashtable
+# from data_structures.hashtable import Hashtable
 
 
 def first_repeated_word(book: str) -> str:
-    formatted_book = book.translate(str.maketrans("", "", string.punctuation)).split()
-    print(formatted_book)
-    words = {}
-    for word in formatted_book:
-        if word.lower() in words.keys():
+    formatted_words = book.translate(str.maketrans("", "", string.punctuation)).split()  # O(n^2)
+    current_words = {}
+    for word in formatted_words:
+        if word.lower() in current_words.keys():  # O(n^2)
             return word.lower()
         else:
-            words[word.lower()] = 1
+            current_words[word.lower()] = 1
     return None
 
 
@@ -26,7 +25,7 @@ if __name__ == "__main__":
     third_test = ("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and "
                   "I didn’t know what I was doing in New York...")
     fourth_test = "Over the rainbow, and through the fields"
-    fifth_test= "He counted 100 fishes and 100 fishes ..."
+    fifth_test = "He counted 100 fishes and 100 fishes ..."
     print(first_repeated_word(first_test))
     print(first_repeated_word(second_test))
     print(first_repeated_word(third_test))
