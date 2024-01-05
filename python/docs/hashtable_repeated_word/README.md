@@ -1,11 +1,10 @@
-# Hash Table Repeated Word
+# Find the First Repeated Word in a Book
 <!-- Description of the challenge -->
-Find the first repeated word in a book and return that word. Ignore punctuation and casing. Return None if
-no word repeats.
+Write a function called first_repeated_word that reads in a string called book and return first word that repeats. Ignore punctuation and casing. Return None if no word in the book repeats.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-
+![Whiteboard](/docs/hashtable_repeated_word/whiteboard.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
