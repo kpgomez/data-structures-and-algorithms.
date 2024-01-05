@@ -11,7 +11,7 @@ def first_repeated_word(book: str) -> str:
             return word.lower()
         else:
             words[word.lower()] = 1
-    return "No words were repeated"
+    return None
 
 
 if __name__ == "__main__":
