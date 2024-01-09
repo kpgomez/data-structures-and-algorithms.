@@ -3,6 +3,7 @@
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
+![whiteboard](/docs/tree_intersection/tree_intersection%20whiteboard.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
