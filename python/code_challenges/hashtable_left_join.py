@@ -2,6 +2,9 @@ from data_structures.hashtable import Hashtable
 
 
 def left_join(synonyms: dict, antonyms: dict) -> list[list[str]]:
+    if len(synonyms) == 0 or len(antonyms) == 0:
+        return None
+
     outer_list = []
 
     for key, value in synonyms.items():
