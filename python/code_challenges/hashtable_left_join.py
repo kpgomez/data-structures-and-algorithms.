@@ -15,5 +15,4 @@ def left_join(synonyms: dict, antonyms: dict) -> list[list[str]]:
         inner_list.append(antonyms[key]) if key in antonyms.keys() else inner_list.append("NONE")
         outer_list.append(inner_list)
 
-    print(outer_list)
     return outer_list
