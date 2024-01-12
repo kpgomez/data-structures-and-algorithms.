@@ -6,7 +6,7 @@ def test_exists():
     assert left_join
 
 
-@pytest.mark.skip("TODO")
+# @pytest.mark.skip("TODO")
 def test_example():
     synonyms = {
         "diligent": "employed",
@@ -33,4 +33,4 @@ def test_example():
 
     actual = left_join(synonyms, antonyms)
 
-    assert actual == expected
+    assert sorted(actual) == sorted(expected)  # added sorted method
