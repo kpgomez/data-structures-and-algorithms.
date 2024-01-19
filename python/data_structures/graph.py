@@ -51,12 +51,14 @@ class Graph:
         :return:
         :rtype:
         """
-        all_edges = {}
+        edges = {}
 
         # confirm both vertices are in the graph
         if first_vertex in self.vertices and second_vertex in self.vertices:
-            self.edges[first_vertex] = weight
-            self.edges[second_vertex] = weight
+            self.edges[first_vertex.value] = edges[second_vertex.value]
+            edges[second_vertex.value]["weight"] = weight
+            self.edges[second_vertex.value] = edges[first_vertex.value]
+            edges[first_vertex.value]["weight"] = weight
 
     def get_vertices(self):
         """
@@ -74,6 +76,8 @@ class Graph:
         :return:
         :rtype:
         """
+
+        # could potentially implement edges as a dictionary of dictionaries
         return self.edges[vertex]
 
     def size(self):
